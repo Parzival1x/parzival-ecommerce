@@ -16,17 +16,24 @@ include('navbar/nav.php');
         <h2 class="product-category">best selling</h2>
 
         <div class="product-container">
+        <?php
+							$get_product=get_product($con,4);
+							foreach($get_product as $list){
+							?>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="img/card01.png" class="product-thumb" alt="">
+                <a href="prod.php?id=<?php echo $list['id']?>">
+                    <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
+                 </a>
                     <button class="card-btn">add to cart</button>
                 </div>
                 <div class="product-info">
-                    <h2 class="product-brand">bed</h2>
+                <h2><a href="product-details.html"><?php echo $list['name']?></a></h2>
                     <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
+                    <span class="price"><?php echo $list['price']?></span><span class="actual-price"><?php echo $list['mrp']?></span>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </section>
 

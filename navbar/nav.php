@@ -1,3 +1,12 @@
+<?php
+require('connection.inc.php');
+require('functions.inc.php');
+$cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
+$cat_arr=array();
+while($row=mysqli_fetch_assoc($cat_res)){
+	$cat_arr[]=$row;	
+}
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -30,10 +39,15 @@
                     </div>
                 </div>
                 <ul class="links-container">
-                    <li class="link-item"><a href="#" class="link">Couch</a></li>
-                    <li class="link-item"><a href="#" class="link">Bedroom</a></li>
-                    <li class="link-item"><a href="#" class="link">TV unit</a></li>
-                    <li class="link-item"><a href="#" class="link">Tables</a></li>
+                    <li class="link-item"><a href="index.php" class="link">Home</a></li>
+                    <?php
+						foreach($cat_arr as $list){
+					?>
+                    <li class="link-item"><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
+                    <?php
+						}
+					?>
+                    
                     <li class="link-item"><a href="#" class="link">accessories</a></li>
                 </ul>
                 </nav>
