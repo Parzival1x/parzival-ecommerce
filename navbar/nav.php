@@ -43,7 +43,7 @@ while($row=mysqli_fetch_assoc($cat_res)){
                     <?php
 						foreach($cat_arr as $list){
 					?>
-                    <li class="link-item"><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
+                    <li class="link-item "> <a href="categories.php?id=<?php echo $list['id']?>" class="link"><?php echo $list['categories']?> </a></li>
                     <?php
 						}
 					?>
