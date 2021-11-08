@@ -1,20 +1,3 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="navbar/nav.css">
-    <link rel="stylesheet" href="footer/footer.css">
-
-    <script src="home.js"></script>
-    <script src="footer/footer.js"></script>
-    <script src="navbar/nav.js"></script>
-
-    <title>Royal Furniture...</title>
-</head>
-
 <?php 
 include('navbar/nav.php');
 ?>
@@ -33,102 +16,24 @@ include('navbar/nav.php');
         <h2 class="product-category">best selling</h2>
 
         <div class="product-container">
+        <?php
+							$get_product=get_product($con,4);
+							foreach($get_product as $list){
+							?>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="img/card01.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to whislist</button>
+                <a href="prod.php?id=<?php echo $list['id']?>">
+                    <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
+                 </a>
+                    <button class="card-btn">add to cart</button>
                 </div>
                 <div class="product-info">
-                    <h2 class="product-brand">bed</h2>
+                <h2><a href="product-details.html"><?php echo $list['name']?></a></h2>
                     <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
+                    <span class="price"><?php echo $list['price']?></span><span class="actual-price"><?php echo $list['mrp']?></span>
                 </div>
             </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/card01.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/card1.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/card1.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/card1.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/card1.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/card1.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="img/card1.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-
+            <?php } ?>
         </div>
     </section>
 

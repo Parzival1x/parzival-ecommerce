@@ -1,3 +1,24 @@
+<?php 
+require('navbar/nav.php');
+if(isset($_GET['id'])){
+	$product_id=mysqli_real_escape_string($con,$_GET['id']);
+	if($product_id>0){
+		$get_product=get_product($con,'','',$product_id);
+	}else{
+		?>
+		<script>
+		window.location.href='index.php';
+		</script>
+		<?php
+	}
+}else{
+	?>
+	<script>
+	window.location.href='index.php';
+	</script>
+	<?php
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,9 +44,6 @@
     <title>Product Page</title>
 </head>
 
-<?php
-    include 'navbar/nav.php';
-?>
 <body>
     <div id="wave"></div>
     <div class="container mt-5 mb-5">
@@ -33,7 +51,7 @@
             <div class="row g-0">
                 <div class="col-md-6 border-end">
                     <div class="d-flex flex-column justify-content-center">
-                        <div class="main_image"> <img src="img/bedroom.jpg" id="main_product_image" width="500"> </div>
+                        <div class="main_image"> <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$get_product['0']['image']?>" alt="full-image"> </div>
                         <div class="thumbnail_images">
                             <ul id="thumbnail">
                                 <li><img onclick="changeImage(this)" src="img/bedroom.jpg" width="70" class="active" alt=""></li>
@@ -47,13 +65,12 @@
                 <div class="col-md-6">
                     <div class="p-3 right-side">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h3>BEDROOM ACCESSORIES</h3> <span class="heart"><i class='bx bx-heart'></i></span>
+                        <h3><?php echo $get_product['0']['name']?></h3> <span class="heart"><i class='bx bx-heart'></i></span>
                         </div>
                         <div class="mt-2 pr-3 content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua</p>
+                            <p><?php echo $get_product['0']['short_desc']?></p>
                         </div>
-                        <h3>$430.99</h3>
+                        <h3><?php echo $get_product['0']['price']?></h3>
                         <div class="ratings d-flex flex-row align-items-center">
                             <div class="d-flex flex-row"> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <iclass='bx bxs-star'></iclass=> 
                                     <i class='bx bxs-star'>
