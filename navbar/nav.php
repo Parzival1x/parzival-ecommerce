@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="navbar/nav.css">
     <link rel="stylesheet" href="footer/footer.css">
+    <link rel="stylesheet" href="../Products/product.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <script src="home.js"></script>
     <script src="footer/footer.js"></script>
@@ -35,6 +37,5 @@
                     <li class="link-item"><a href="#" class="link">accessories</a></li>
                 </ul>
                 </nav>
-        
         </body>
         </html>
