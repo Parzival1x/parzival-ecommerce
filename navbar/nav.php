@@ -16,14 +16,17 @@ while($row=mysqli_fetch_assoc($cat_res)){
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="navbar/nav.css">
     <link rel="stylesheet" href="footer/footer.css">
-    <link rel="stylesheet" href="../Products/product.css">
+    
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
 
     <script src="home.js"></script>
     <script src="footer/footer.js"></script>
     <script src="navbar/nav.js"></script>
 
-    <title>Royal Furniture...</title>
+    <title>Royal Furniture</title>
 </head>
         <body>
             <nav class="navbar">

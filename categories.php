@@ -19,84 +19,38 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 	<?php
 }										
 ?>
+
 <div class="body__overlay"></div>
-        
-        <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
-            <div class="ht__bradcaump__wrap">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="bradcaump__inner">
-                                <nav class="bradcaump-inner">
-                                  <a class="breadcrumb-item" href="index.php">Home</a>
-                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                  <span class="breadcrumb-item active">Products</span>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container mt-5 mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3"> <span>Hottest Giveaways</span> <span class="custom-badge text-uppercase">See More</span> </div>
+            <div class="row">
+                <?php if(count($get_product)>0){?>
+                <div class="col-md-4">
+                    <?php
+				      foreach($get_product as $list){
+			        ?>
+            <div class="card">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex flex-row align-items-center time"> <i class="fa fa-clock-o"></i> <small class="ml-1">2 Days</small> </div> <img src="https://i.imgur.com/suuFVrQ.png" width="20">
+                </div>
+                <div class="text-center product-image">
+                <a href="prod.php?id=<?php echo $list['id']?>">
+                    <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
+                 </a>
+                
+                </div>
+                <div class="text-center">
+                    <h5><?php echo $list['name']?></h5> <span class="text-success">$<?php echo $list['price']?></span>
+                    <span class="actual-price">$<?php echo $list['mrp']?></span>
                 </div>
             </div>
+            <?php } ?>
         </div>
-        <!-- End Bradcaump area -->
-
-        <!-- Start Product Grid -->
-        <section class="htc__product__grid bg__white ptb--100">
-            <div class="container">
-                <div class="row">
-					<?php if(count($get_product)>0){?>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="htc__product__rightidebar">
-                            <div class="htc__grid__top">
-                                <div class="htc__select__option">
-                                    <select class="ht__select">
-                                        <option>Default softing</option>
-                                        <option>Sort by popularity</option>
-                                        <option>Sort by average rating</option>
-                                        <option>Sort by newness</option>
-                                    </select>
-                                </div>
-                               
-                            </div>
-                            <!-- Start Product View -->
-                            <div class="row">
-                                <div class="shop__grid__view__wrap">
-                                    <div role="tabpanel" id="grid-view" class="single-grid-view tab-pane fade in active clearfix">
-                                        <?php
-										foreach($get_product as $list){
-										?>
-										<!-- Start Single Category -->
-										<div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-											<div class="category">
-												<div class="ht__cat__thumb">
-													<a href="product.php?id=<?php echo $list['id']?>">
-														<img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
-													</a>
-												</div>
-												
-												<div class="fr__product__inner">
-													<h4><a href="product-details.html"><?php echo $list['name']?></a></h4>
-													<ul class="fr__pro__prize">
-														<li class="old__prize"><?php echo $list['mrp']?></li>
-														<li><?php echo $list['price']?></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<?php } ?>
-                                    </div>
-							   </div>
-                            </div>
-                        </div>
-                    </div>
-					<?php } else { 
+                 <?php } else { 
 						echo "Data not found";
-					} ?>
-                
-				</div>
-            </div>
-        </section>
+					    }?>
+    </div>
+</div>
         <!-- End Product Grid -->
 
         <!-- End Banner Area -->

@@ -13,7 +13,7 @@ include('navbar/nav.php');
     </header>
 
     <section class="product">
-        <h2 class="product-category">best selling</h2>
+        <h2 class="product-category">Our Latest Products</h2>
 
         <div class="product-container">
         <?php
@@ -28,9 +28,9 @@ include('navbar/nav.php');
                     <button class="card-btn">add to cart</button>
                 </div>
                 <div class="product-info">
-                <h2><a href="product-details.html"><?php echo $list['name']?></a></h2>
+                <h2><a href="prod.php?id=<?php echo $list['id']?>"><?php echo $list['name']?></a></h2>
                     <p class="product-short-des">a short line about the cloth..</p>
-                    <span class="price"><?php echo $list['price']?></span><span class="actual-price"><?php echo $list['mrp']?></span>
+                    <span class="price">$<?php echo $list['price']?></span><span class="actual-price">$<?php echo $list['mrp']?></span>
                 </div>
             </div>
             <?php } ?>
