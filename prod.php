@@ -23,24 +23,10 @@ if(isset($_GET['id'])){
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="prod.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="prod.css">
-    
-    <script src="prod.js"></script>
-
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="navbar/nav.css">
-    <link rel="stylesheet" href="footer/footer.css">
-    <script src="home.js"></script>
-    <script src="footer/footer.js"></script>
-    <script src="navbar/nav.js"></script>
-
-
     <title>Product Page</title>
 </head>
 
@@ -70,12 +56,15 @@ if(isset($_GET['id'])){
                         <div class="mt-2 pr-3 content">
                             <p><?php echo $get_product['0']['short_desc']?></p>
                         </div>
-                        <h3><?php echo $get_product['0']['price']?></h3>
+                        <h3>$<?php echo $get_product['0']['price']?></h3>
                         <div class="ratings d-flex flex-row align-items-center">
-                            <div class="d-flex flex-row"> <i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <iclass='bx bxs-star'></iclass=> 
-                                    <i class='bx bxs-star'>
-                                    </i> <i class='bx bx-star'></i>
-                            </div> <span>441 reviews</span>
+                            <div class="d-flex flex-row"> 
+                             <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'>   </i>   
+                            <i class ='bx bxs-star'> </i>
+                            <i class='bx bxs-star'></i> 
+                            <i class='bx bx-star'></i>
+                            </div> <span>1 reviews</span>
                         </div><br>
                         <div class="buttons d-flex flex-row mt-5 gap-3"> <button class="btn btn-outline-dark">Buy
                                 Now</button> <button class="btn btn-dark">Add to Basket</button> </div><br><br><br>
